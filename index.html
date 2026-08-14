@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO ===== -->
+  <title>Barreteros | Equipo de Béisbol de Barroterán — Est. 1977</title>
+  <meta name="description" content="Sitio oficial de Barreteros. Conoce nuestra historia, jugadores, próximos partidos, resultados, promociones y vive toda la pasión de nuestra afición.">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Barreteros | Equipo de Béisbol de Barroterán — Est. 1977">
+  <meta property="og:description" content="Tradición, pasión y orgullo dentro y fuera del diamante.">
+  <meta property="og:image" content="assets/hero.png">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- ===== Favicon (escudo del equipo) ===== -->
+  <link rel="icon" type="image/png" href="assets/logo.jpg">
+
+  <!-- Tipografías (opcional: si se eliminan, el sitio usa fallbacks del sistema) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- ==================== HEADER / MENÚ ==================== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Barreteros — Inicio">
+        <img src="assets/logo.jpg" alt="Escudo circular de Barreteros con bates cruzados, pelota y estrellas, Est. 1977" class="brand-logo">
+        <span class="brand-text">
+          <strong>Barreteros</strong>
+          <small>Barroterán · Est. 1977</small>
+        </span>
+      </a>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li><a class="nav-link" href="#historia">Historia</a></li>
+          <li><a class="nav-link" href="#juegos">Juegos</a></li>
+          <li><a class="nav-link" href="#resultados">Resultados</a></li>
+          <li><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-cta-mobile"><a href="#fuerza" class="btn btn-small">¡Vamos Barreteros!</a></li>
+        </ul>
+      </nav>
+
+      <a href="#fuerza" class="btn btn-small header-cta">¡Vamos Barreteros!</a>
+
+      <button id="menu-toggle" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="nav-backdrop" class="nav-backdrop" hidden></div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ==================== HERO ==================== -->
+    <section id="inicio" class="hero" aria-label="Presentación del equipo">
+      <div class="hero-parallax">
+        <!-- Imagen de fondo: estadio nocturno -->
+        <div class="hero-bg" style="background-image:url('assets/estadio/estadio.jpg')" role="img"
+             aria-label="Estadio de béisbol iluminado por la noche con jugadores en acción y afición llena"></div>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content container">
+        <img src="assets/logo.jpg" alt="Escudo oficial de Barreteros" class="hero-logo">
+        <h1 class="hero-title">Barreteros</h1>
+        <p class="hero-sub">De Barroterán — Est. 1977</p>
+        <p class="hero-phrase">“Tradición, pasión y orgullo dentro y fuera del diamante.”</p>
+        <div class="hero-actions">
+          <a href="#juegos" class="btn">Ver próximos juegos</a>
+          <a href="#equipo" class="btn btn-outline">Conoce al equipo</a>
+        </div>
+      </div>
+
+      <a href="#fuerza" class="hero-scroll" aria-label="Bajar a la siguiente sección">
+        <span aria-hidden="true">▼</span>
+      </a>
+    </section>
+
+    <div class="stripe-divider" aria-hidden="true"></div>
+
+    <!-- ==================== BANNER DE LA AFICIÓN ==================== -->
+    <section id="fuerza" class="section section--dark fans">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Nuestra afición ★</p>
+          <h2 class="section-title">La Fuerza de Barreteros</h2>
+          <p class="section-lead">Cada juego se vive con pasión. Nuestra afición es parte fundamental de la historia de Barreteros.</p>
+        </div>
+
+        <div class="fans-collage" data-stagger>
+          <figure class="reveal fc-a">
+            <img src="assets/aficion/uno.jpg" alt="Aficionados de Barreteros ondeando banderas azul marino y rojas en las gradas" loading="lazy">
+          </figure>
+          <figure class="reveal fc-b">
+            <img src="assets/aficion/dos.jpg" alt="Familia con niños vestidos con jersey rojo y gorra azul apoyando al equipo" loading="lazy">
+          </figure>
+          <figure class="reveal fc-c">
+            <img src="assets/aficion/tres.jpg" alt="Jugadores de Barreteros celebrando una victoria bajo las luces del estadio" loading="lazy">
+          </figure>
+          <figure class="reveal fc-d">
+            <img src="assets/aficion/cuatro.jpg" alt="Entrenamiento del equipo al atardecer en el campo de Barroterán" loading="lazy">
+          </figure>
+          <figure class="reveal fc-d">
+            <img src="assets/aficion/cinco.jpg" alt="Entrenamiento del equipo al atardecer en el campo de Barroterán" loading="lazy">
+          </figure>
+        </div>
+
+        <!-- Estadísticas con contadores animados -->
+        <div class="stats" data-stagger>
+          <div class="stat reveal">
+            <span class="stat-number" data-target="1977" data-start="1900">1977</span>
+            <span class="stat-label">Año de fundación</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-target="40" data-prefix="+">+40</span>
+            <span class="stat-label">Años de tradición</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-target="1">1</span>
+            <span class="stat-label">Familia Barreteros</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HISTORIA ==================== -->
+    <section id="historia" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Desde 1977 ★</p>
+          <h2 class="section-title">Nuestra Historia</h2>
+          <p class="section-lead">Una historia construida con pasión por el béisbol, esfuerzo y orgullo por Barroterán.</p>
+        </div>
+
+        <!-- Línea de tiempo: horizontal en escritorio, vertical en móvil -->
+        <div class="timeline" data-stagger>
+          <article class="timeline-item reveal">
+            <span class="tl-year">1977</span>
+            <h3>El comienzo</h3>
+            <p>Una historia construida con pasión por el béisbol, esfuerzo y orgullo por Barroterán.</p>
+          </article>
+
+          <!-- ====== BLOQUES RESERVADOS (editar cuando se documente la historia) ====== -->
+          <article class="timeline-item reveal tl-placeholder">
+            <span class="tl-year">1980’s</span>
+            <h3>Temporadas importantes</h3>
+            <p>Espacio reservado para documentar temporadas históricas y fotografías antiguas.</p>
+            <span class="tl-tag">Por documentar</span>
+          </article>
+
+          <article class="timeline-item reveal tl-placeholder">
+            <span class="tl-year">1990’s</span>
+            <h3>Campeonatos</h3>
+            <p>Espacio reservado para los campeonatos y reconocimientos obtenidos por el equipo.</p>
+            <span class="tl-tag">Por documentar</span>
+          </article>
+
+          <article class="timeline-item reveal tl-placeholder">
+            <span class="tl-year">2000’s</span>
+            <h3>Jugadores históricos</h3>
+            <p>Espacio reservado para las leyendas y grandes momentos de Barreteros.</p>
+            <span class="tl-tag">Por documentar</span>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="tl-year">Hoy</span>
+            <h3>El legado continúa</h3>
+            <p>Nuevas generaciones portando con orgullo el nombre de Barroterán en el diamante.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="stripe-divider" aria-hidden="true"></div>
+
+    <!-- ==================== JUGADORES ==================== -->
+    <section id="equipo" class="section section--dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Roster ★</p>
+          <h2 class="section-title">Nuestro Equipo</h2>
+          <p class="section-lead">Los jugadores que defienden con orgullo los colores de Barroterán.</p>
+        </div>
+
+        <!-- Las tarjetas se generan desde js/app.js (arreglo JUGADORES) -->
+        <div id="players-grid" class="players-grid"></div>
+        <p class="demo-note">Roster de demostración — editable en <code>js/app.js</code></p>
+      </div>
+    </section>
+
+    <!-- ==================== ESTADIO ==================== -->
+    <section id="estadio" class="section stadium">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Nuestro estadio ★</p>
+          <h2 class="section-title">Nuestra Casa</h2>
+          <p class="section-lead">El diamante donde late el corazón de Barroterán.</p>
+        </div>
+
+        <div class="stadium-wrap reveal">
+          <figure class="stadium-media">
+            <img src="assets/estadio/panoramica.jpg" alt="Vista panorámica del estadio de béisbol de Barroterán al atardecer" loading="lazy">
+          </figure>
+
+          <!-- Tarjeta flotante de información -->
+          <aside class="stadium-card">
+            <h3>Estadio de Barroterán</h3>
+            <p class="stadium-note">(Nombre oficial por confirmar)</p>
+            <ul class="stadium-list">
+              <li><strong>Ubicación:</strong> Barroterán, Coahuila, México</li>
+              <li><strong>Capacidad:</strong> Por definir</li>
+              <li><strong>Casa de:</strong> Barreteros · Est. 1977</li>
+            </ul>
+            <a href="#" class="btn btn-small js-maps">Cómo llegar</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRÓXIMOS PARTIDOS ==================== -->
+    <section id="juegos" class="section section--dark games">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Calendario ★</p>
+          <h2 class="section-title">Próximos Partidos</h2>
+          <p class="section-lead">Agenda tu noche de béisbol y apoya al equipo desde las gradas.</p>
+        </div>
+
+        <!-- Tarjetas generadas desde js/app.js (arreglo PARTIDOS) -->
+        <div id="games-grid" class="games-grid"></div>
+        <p class="demo-note">Calendario de demostración — editable en <code>js/app.js</code></p>
+      </div>
+    </section>
+
+    <div class="stripe-divider" aria-hidden="true"></div>
+
+    <!-- ==================== RESULTADOS ==================== -->
+    <section id="resultados" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Marcadores ★</p>
+          <h2 class="section-title">Últimos Resultados</h2>
+        </div>
+
+        <!-- Generado desde js/app.js (arreglo RESULTADOS) -->
+        <div id="results-list" class="results-list"></div>
+
+        <div class="results-actions">
+          <button id="btn-all-results" class="btn btn-blue">Ver todos los resultados</button>
+        </div>
+        <p class="demo-note demo-note--light">Resultados de demostración — editables en <code>js/app.js</code></p>
+      </div>
+    </section>
+
+    <!-- ==================== PROMOCIONES ==================== -->
+    <section id="promociones" class="section section--dark promos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ No te lo pierdas ★</p>
+          <h2 class="section-title">Promociones Barreteros</h2>
+        </div>
+
+        <div class="promos-grid" data-stagger>
+          <article class="promo-card reveal">
+            <img src="assets/promociones/promo1.jpg" alt="Artículos de promoción del equipo: gorras, banderas y pelotas" loading="lazy">
+            <div class="promo-body">
+              <span class="promo-chip">Vigencia por definir</span>
+              <h3>¡Promoción de partido!</h3>
+              <p>Ven con tu familia y vive la emoción del béisbol.</p>
+              <a href="https://www.facebook.com/photo?fbid=1035866322758820&set=a.354481330897326" class="btn btn-small">Más información</a>
+            </div>
+          </article>
+
+          <article class="promo-card reveal">
+            <img src="assets/promociones/promo2.jpg"" alt="Fuegos artificiales sobre el estadio en una noche de juego" loading="lazy">
+            <div class="promo-body">
+              <span class="promo-chip">Vigencia por definir</span>
+              <h3>Noche Barretera</h3>
+              <p>Apoya al equipo y disfruta una noche inolvidable.</p>
+              <a href="https://www.facebook.com/photo/?fbid=1033946306284155&set=pb.100090063850039.-2207520000" class="btn btn-small">Más información</a>
+            </div>
+          </article>
+
+          <article class="promo-card reveal">
+            <img src="assets/promociones/promo3.jpg" alt="Familia disfrutando el juego en el estadio" loading="lazy">
+            <div class="promo-body">
+              <span class="promo-chip">Espacio disponible</span>
+              <h3>Promociones especiales</h3>
+              <p>Tarjeta preparada para futuras promociones y sorteos del equipo.</p>
+              <a href="https://www.facebook.com/photo/?fbid=1032301399781979&set=pb.100090063850039.-2207520000" class="btn btn-small">Más información</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GALERÍA / AFICIÓN ==================== -->
+    <section id="galeria" class="section gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Galería ★</p>
+          <h2 class="section-title">Vive la Experiencia Barretera</h2>
+          <p class="section-phrase">“Porque Barreteros no es solo un equipo. Somos una familia.”</p>
+        </div>
+
+        <!-- Grid estilo Instagram con lightbox (JS puro) -->
+        <div class="gallery-grid" data-stagger>
+          <button class="gallery-item reveal gi-wide" data-full="assets/estadio/panoramica.jpg" data-caption="estadio">
+            <img src="assets/estadio/panoramica.jpg" alt="Estadio lleno durante un juego nocturno" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="assets/aficion/uno.jpg" data-caption="La afición rugiendo en las gradas">
+            <img src="assets/aficion/uno.jpg" alt="Afición ondeando banderas del equipo" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="assets/aficion/dos.jpg" data-caption="Las familias barreteras, corazón de la tribuna">
+            <img src="assets/aficion/dos.jpg" alt="Niños y familias apoyando con gorras y jerseys" loading="lazy">
+          </button>
+          <button class="gallery-item reveal gi-tall" data-full="assets/aficion/tres.jpg" data-caption="Celebración después de la victoria">
+            <img src="assets/aficion/tres.jpg" alt="Jugadores celebrando un triunfo" loading="lazy">
+          </button>
+          <button class="gallery-item reveal gi-wide" data-full="assets/aficion/cuatro.jpg" data-caption="Nuestra casa al atardecer">
+            <img src="assets/aficion/cuatro.jpg" alt="Panorámica del estadio" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="assets/aficion/seis.jpg" data-caption="Entrenamiento: esfuerzo que se nota en el campo">
+            <img src="assets/aficion/seis.jpg" alt="Práctica del equipo al atardecer" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="assets/aficion/cinco.jpg" data-caption="Nuestro pitcher listo para el duelo">
+            <img src="assets/aficion/cinco.jpg" alt="Pitcher con el número 10" loading="lazy">
+          </button>
+          <button class="gallery-item reveal" data-full="assets/aficion/siete.jpg" data-caption="Noche Barretera: fuegos y fiesta">
+            <img src="assets/aficion/siete.jpg" alt="Fuegos artificiales sobre el estadio" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== REDES SOCIALES ==================== -->
+    <section id="redes" class="section section--dark social">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Síguenos ★</p>
+          <h2 class="section-title">Redes Sociales</h2>
+          <p class="section-lead">Mantente cerca del equipo en todo momento.</p>
+        </div>
+
+        <div class="social-row" data-stagger>
+          <!-- Los href se asignan desde CONFIG en js/app.js -->
+          <a href="#" class="social-btn reveal" data-social="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Barreteros">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zM12 7.1a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8.1a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm6.2-8.3a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="social-btn reveal" data-social="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Barreteros">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="#" class="social-btn reveal js-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Barreteros">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.6.1-.3-.2-1.1-.4-2-1.3-.8-.7-1.3-1.5-1.4-1.8-.1-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PATROCINADORES ==================== -->
+    <section id="patrocinadores" class="section sponsors">
+      <div class="container section-head reveal">
+        <p class="kicker">★ Aliados ★</p>
+        <h2 class="section-title">Nuestros Patrocinadores</h2>
+      </div>
+
+      <!-- Marquesina: duplica el grupo para bucle infinito. Agrega nuevos .sponsor-logo aquí -->
+      <div class="marquee" aria-label="Patrocinadores del equipo">
+        <div class="marquee-track">
+          <div class="sponsor-group">
+            <span class="sponsor-logo sp-1">Six del Cuatro</span>
+            <span class="sponsor-logo sp-2">Juan Antonio Moreno Saucedo</span>
+            <span class="sponsor-logo sp-3">Avilez - Quinelas y Rifas</span>
+            <span class="sponsor-logo sp-4">Horacio Becerra Alfaro</span>
+            <span class="sponsor-logo sp-5">Super star</span>
+            <span class="sponsor-logo sp-6">Restaurant Villa Fert</span>
+            <span class="sponsor-logo sp-6">Fitness Center</span>
+          </div>
+          <div class="sponsor-group" aria-hidden="true">
+            <span class="sponsor-logo sp-1">Digital Movil</span>
+            <span class="sponsor-logo sp-2">Abastecedora de Pan</span>
+            <span class="sponsor-logo sp-3">Miscelania Hernandez</span>
+            <span class="sponsor-logo sp-4">Transportes Teyri</span>
+            <span class="sponsor-logo sp-5">Alberto Rodriguez Alfaro</span>
+            <span class="sponsor-logo sp-6">Luvident</span>
+            <span class="sponsor-logo sp-6">Minas Real - Eventos</span>
+          </div>
+        </div>
+      </div>
+      <p class="container demo-note demo-note--light">Espacios disponibles para patrocinadores — edita en <code>index.html</code></p>
+    </section>
+
+    <div class="stripe-divider" aria-hidden="true"></div>
+
+    <!-- ==================== CONTACTO ==================== -->
+    <section id="contacto" class="section contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">★ Hablemos ★</p>
+          <h2 class="section-title">Contacto</h2>
+        </div>
+
+        <div class="contact-grid" data-stagger>
+          <article class="contact-card reveal">
+            <span class="contact-icon" aria-hidden="true">📍</span>
+            <h3>Ubicación</h3>
+            <p>Barroterán, Coahuila, México</p>
+          </article>
+          <article class="contact-card reveal">
+            <span class="contact-icon" aria-hidden="true">📱</span>
+            <h3>WhatsApp</h3>
+            <!-- PLACEHOLDER: sustituir por el número real -->
+            <p>[866 163 3223]</p>
+          </article>
+          <article class="contact-card reveal">
+            <span class="contact-icon" aria-hidden="true">📧</span>
+            <h3>Correo</h3>
+            <!-- PLACEHOLDER: sustituir por el correo real -->
+            <p>[barreteros@gmail.com]</p>
+          <!--</article>
+          <<article class="contact-card reveal">
+            <span class="contact-icon" aria-hidden="true">💬</span>
+            <h3>Redes sociales</h3>
+            <p>Instagram y Facebook oficiales</p>
+          </article>
+        </div>
+
+        <div class="contact-actions reveal">
+          <a href="https://wa.me/528661633223" class="btn js-whatsapp">Escríbenos por WhatsApp</a>
+          <a href="#" class="btn btn-blue js-maps">Cómo llegar</a>
+        </div>
+      </div>-->
+    </section>
+
+    <!-- ==================== MAPA ==================== -->
+    <section id="mapa" class="section section--dark map">
+      <div class="container">
+        <div class="map-frame reveal">
+          <div class="map-placeholder" aria-hidden="true">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.0959114843517!2d-101.285850210479!3d27.65250414734775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868ae30021586e63%3A0xfe50cb24ce9e7df8!2sEstadio%20de%20B%C3%A9isbol%20Barroter%C3%A1n!5e0!3m2!1ses-419!2smx!4v1786667177474!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <!--<span class="map-pin">📍</span>-->
+          </div>
+
+          <aside class="map-card">
+            <h3>Encuéntranos</h3>
+            <p>Barroterán, Coahuila, México</p>
+            <a href="#" class="btn btn-small js-maps" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.jpg" alt="Escudo de Barreteros" class="footer-logo">
+        <p class="footer-team">Barreteros — Est. 1977</p>
+        <p class="footer-phrase">“Tradición que se juega con pasión.”</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Menú del pie de página">
+        <h3>Menú</h3>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#juegos">Juegos</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <ul>
+          <li>Barroterán, Coahuila, México</li>
+          <li>[866 163 3223]</li>
+          <li>[barrteros@gmail.com]</li>
+          <li><a href="https://wa.me/528661633223" class="js-whatsapp">8661633223</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Síguenos</h3>
+        <ul class="footer-social">
+          <li><a href="https://www.instagram.com/barreteros_de_barroteran_?igsh=cGp2cmMzbGM1amFs&utm_source=qr&fbclid=IwY2xjawTrMtFwZG9mBWV4dG4DYWVtAjEwAGJyaWQRMUVDOGxYQ05NMVUybGZOUVNzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEe1MGVmrPL5ptRzCcPFMLs1c00hjyTEM_WvAUqI1Wv7UifP5RAq8JvbR_7KZ0_aem_Y1ag2zZdW-Hu2MjOKaDb2A" data-social="instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100090063850039" data-social="facebook" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://wa.me/528661633223" class="js-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Barreteros. Todos los derechos reservados.</p>
+        <p class="footer-motto">Tradición que se juega con pasión.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LIGHTBOX (galería) ==================== -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galería de imágenes" hidden>
+    <button id="lightbox-close" class="lb-btn lb-close" aria-label="Cerrar galería">✕</button>
+    <button id="lightbox-prev" class="lb-btn lb-prev" aria-label="Imagen anterior">❮</button>
+    <figure class="lb-content">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button id="lightbox-next" class="lb-btn lb-next" aria-label="Imagen siguiente">❯</button>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
