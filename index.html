@@ -45,6 +45,7 @@
           <li><a class="nav-link" href="#inicio">Inicio</a></li>
           <li><a class="nav-link" href="#historia">Historia</a></li>
           <li><a class="nav-link" href="#juegos">Juegos</a></li>
+          <li><a class="nav-link" href="#boletos">Boletos</a></li>
           <li><a class="nav-link" href="#resultados">Resultados</a></li>
           <li><a class="nav-link" href="#contacto">Contacto</a></li>
           <li class="nav-cta-mobile"><a href="#fuerza" class="btn btn-small">¡Vamos Barreteros!</a></li>
@@ -100,7 +101,7 @@
 
         <div class="fans-collage" data-stagger>
           <figure class="reveal fc-a">
-            <img src="assets/aficion/uno.jpg" alt="Aficionados de Barreteros ondeando banderas azul marino y rojas en las gradas" loading="lazy">
+            <img src="assets/aficion/ocho.jpg" alt="Aficionados de Barreteros ondeando banderas azul marino y rojas en las gradas" loading="lazy">
           </figure>
           <figure class="reveal fc-b">
             <img src="assets/aficion/dos.jpg" alt="Familia con niños vestidos con jersey rojo y gorra azul apoyando al equipo" loading="lazy">
@@ -195,7 +196,7 @@
 
         <!-- Las tarjetas se generan desde js/app.js (arreglo JUGADORES) -->
         <div id="players-grid" class="players-grid"></div>
-        <p class="demo-note">Roster de demostración — editable en <code>js/app.js</code></p>
+        <!--<p class="demo-note">Roster de demostración — editable en <code>js/app.js</code></p>-->
       </div>
     </section>
 
@@ -234,14 +235,106 @@
         <div class="section-head reveal">
           <p class="kicker">★ Calendario ★</p>
           <h2 class="section-title">Próximos Partidos</h2>
-          <p class="section-lead">Agenda tu noche de béisbol y apoya al equipo desde las gradas.</p>
+          <p class="section-lead">Agenda tu partido de béisbol y apoya al equipo desde las gradas.</p>
         </div>
 
         <!-- Tarjetas generadas desde js/app.js (arreglo PARTIDOS) -->
         <div id="games-grid" class="games-grid"></div>
-        <p class="demo-note">Calendario de demostración — editable en <code>js/app.js</code></p>
+        <!--<p class="demo-note">Calendario de demostración — editable en <code>js/app.js</code></p>-->
       </div>
     </section>
+    
+    <!-- ==================== BOLETOS EN LÍNEA (PLANET BOLETOS) ==================== -->
+<section id="boletos" class="section tickets" aria-label="Compra de boletos en línea">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">★ Planet Boletos ★</p>
+      <h2 class="section-title">Boletos en Línea</h2>
+      <p class="section-lead">Asegura tu lugar para el próximo partido. Realiza tu transferencia y confirma tu compra por WhatsApp o correo electrónico.</p>
+    </div>
+
+    <!--
+
+    <div class="tickets-wrap reveal">
+      <!-- Columna principal: partidos disponibles + formulario 
+      <div class="tickets-main">
+
+        <!-- JS muestra aquí el próximo partido (o los 2 del día si hay doble juego) 
+        <div id="tickets-games" class="tickets-games" role="radiogroup" aria-label="Partido seleccionado para tu compra"></div>
+
+        <form id="ticket-form" class="ticket-form" novalidate>
+          <div class="tf-row">
+            <label class="tf-label" for="tf-nombre">Nombre del comprador</label>
+            <input class="tf-input" id="tf-nombre" name="nombre" type="text" placeholder="Ej. Ana García" autocomplete="name" required>
+          </div>
+
+          <div class="tf-row">
+            <label class="tf-label" for="tf-contacto">Correo o teléfono para tu notificación</label>
+            <input class="tf-input" id="tf-contacto" name="contacto" type="text" placeholder="correo@ejemplo.com · 877 000 0000" required>
+          </div>
+
+          <div class="tf-row tf-row--split">
+            <div>
+              <label class="tf-label" for="tf-cantidad">Cantidad de boletos</label>
+              <div class="qty-control">
+                <button type="button" class="qty-btn" id="qty-minus" aria-label="Disminuir cantidad">−</button>
+                <input class="qty-input" id="tf-cantidad" name="cantidad" type="number" min="1" max="10" value="2" inputmode="numeric" required>
+                <button type="button" class="qty-btn" id="qty-plus" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+            <div class="tf-price">
+              <span class="tf-price-label">Costo por boleto</span>
+              <span class="tf-price-value">$50 <small>MXN</small></span>
+            </div>
+          </div>
+
+          <div class="tf-total" aria-live="polite">
+            <span>Total a transferir</span>
+            <strong id="tf-total">$100 MXN</strong>
+          </div>
+
+          <!-- Datos de transferencia: UNA sola fuente (CONFIG en app.js), sin números duplicados 
+          <div class="tf-transfer">
+            <h3>💳 Datos para tu transferencia</h3>
+            <ul class="tf-transfer-list">
+              <li><strong>Titular:</strong> Planet Boletos</li>
+              <li><strong>Número para transferencia:</strong> <span id="tf-num-transfer">[NÚMERO DE TRANSFERENCIA]</span></li>
+              <li><strong>Banco:</strong> [BANCO — placeholder]</li>
+            </ul>
+            <p class="tf-note">Después de transferir, envía tu comprobante. Recibirás la <strong>notificación de compra confirmada</strong> por el mismo medio que elijas (WhatsApp o correo).</p>
+          </div>
+
+          <div class="tf-actions">
+            <button type="submit" class="btn" data-canal="whatsapp">Confirmar por WhatsApp</button>
+            <button type="submit" class="btn btn-blue" data-canal="correo">Confirmar por correo</button>
+          </div>
+          <p class="tf-legal">Compra ofrecida por <strong>Planet Boletos</strong> · “Tu Acceso de Boleto!!” — Evitamos duplicados: una sola notificación por compra y contacto.</p>
+        </form>
+      </div>
+
+      -->
+
+      <!-- Columna de marca -->
+      <aside class="tickets-brand">
+        <img src="assets/boletos/planet-boletos.png" alt="Logotipo de Planet Boletos: boleto con pelota de béisbol y lema Tu Acceso de Boleto" class="tickets-logo">
+        <p class="tickets-brand-name">Planet Boletos</p>
+        <p class="tickets-brand-tag">“Tu Acceso de Boleto!!”</p>
+        
+        <a href="">
+        <div class="tickets-badge">
+        
+          <span class="tickets-badge-price">$50</span>
+          <span class="tickets-badge-label">pesos por boleto</span>
+        </div></a>
+        <ul class="tickets-perks">
+          <li>⚾ Acceso al juego seleccionado</li>
+          <li>📲 Notificación de compra por WhatsApp o correo</li>
+          <li>🔒 Sin duplicados: una notificación por contacto y partido</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
 
     <div class="stripe-divider" aria-hidden="true"></div>
 
@@ -259,7 +352,7 @@
         <div class="results-actions">
           <button id="btn-all-results" class="btn btn-blue">Ver todos los resultados</button>
         </div>
-        <p class="demo-note demo-note--light">Resultados de demostración — editables en <code>js/app.js</code></p>
+        <!--<p class="demo-note demo-note--light">Resultados de demostración — editables en <code>js/app.js</code></p>-->
       </div>
     </section>
 
@@ -401,7 +494,7 @@
           </div>
         </div>
       </div>
-      <p class="container demo-note demo-note--light">Espacios disponibles para patrocinadores — edita en <code>index.html</code></p>
+      <!--<p class="container demo-note demo-note--light">Espacios disponibles para patrocinadores — edita en <code>index.html</code></p>-->
     </section>
 
     <div class="stripe-divider" aria-hidden="true"></div>
@@ -430,7 +523,7 @@
             <span class="contact-icon" aria-hidden="true">📧</span>
             <h3>Correo</h3>
             <!-- PLACEHOLDER: sustituir por el correo real -->
-            <p>[barreteros@gmail.com]</p>
+            <p>[planetpublicidadmva@gmail.com]</p>
           <!--</article>
           <<article class="contact-card reveal">
             <span class="contact-icon" aria-hidden="true">💬</span>
@@ -479,7 +572,8 @@
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#historia">Historia</a></li>
-          <li><a href="#juegos">Juegos</a></li>
+          <li><a class="nav-link" href="#juegos">Juegos</a></li>
+          <li><a class="nav-link" href="#boletos">Boletos</a></li>
           <li><a href="#resultados">Resultados</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
