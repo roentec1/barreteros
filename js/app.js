@@ -8,18 +8,27 @@
    Sustituye los placeholders sin tocar el resto del código.
    ============================================================ */
 const CONFIG = {
+
   // WhatsApp: código de país + número, solo dígitos. Ej: "5218771234567"
-  whatsappNumber: "528661633223", // ← NUMERO_WHATSAPP (placeholder)
-  whatsappMessage: "Hola Barreteros, quiero obtener información sobre los próximos juegos.",
-  email: "[CORREO DEL EQUIPO]",     // ← placeholder
+  whatsappNumber: "https://wa.me/528661633223", // ← NUMERO_WHATSAPP (placeholder)
+  whatsappMessage: "Hola Barreteros, requiero bolestos para este proximo partido, por favor.",
+  email: "[rrrayas@gmail.com]",     // ← placeholder
 
   socialLinks: {
     instagram: "https://www.instagram.com/barreteros_de_barroteran_?igsh=cGp2cmMzbGM1amFs&utm_source=qr&fbclid=IwY2xjawTrMtFwZG9mBWV4dG4DYWVtAjEwAGJyaWQRMUVDOGxYQ05NMVUybGZOUVNzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEe1MGVmrPL5ptRzCcPFMLs1c00hjyTEM_WvAUqI1Wv7UifP5RAq8JvbR_7KZ0_aem_Y1ag2zZdW-Hu2MjOKaDb2A",     // ← https://instagram.com/tu-cuenta
     facebook:  "https://www.facebook.com/profile.php?id=100090063850039",      // ← https://facebook.com/tu-pagina
-    whatsapp:  "https://wa.me/528661633223"    // ← mismo formato que whatsappNumber
+    whatsapp:  "528661633223"    // ← mismo formato que whatsappNumber
   },
 
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Barroter%C3%A1n%2C+Coahuila%2C+M%C3%A9xico"
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Barroter%C3%A1n%2C+Coahuila%2C+M%C3%A9xico",
+
+  boletos: {
+    precio: 50,                                   // costo por boleto en pesos
+    maxPorCompra: 10,
+    numeroTransferencia: "[NÚMERO DE TRANSFERENCIA]", // ← cuenta/teléfono Spei de Planet Boletos (placeholder)
+    banco: "[BANCO]"                              // ← placeholder
+  },
+
 };
 
 /* ============================================================
@@ -36,19 +45,20 @@ const JUGADORES = [
 
 /* --- Próximos partidos --- */
 const PARTIDOS = [
-  { dia: "SÁBADO",  fecha: "22 AGO", hora: "7:30 PM", visitante: "Mineros (ejemplo)",  estadio: "Estadio de Barroterán" },
-  { dia: "DOMINGO", fecha: "30 AGO", hora: "5:00 PM", visitante: "Vaqueros (ejemplo)", estadio: "Estadio de Barroterán" },
-  { dia: "SÁBADO",  fecha: "05 SEP", hora: "7:30 PM", visitante: "Acereros (ejemplo)", estadio: "Estadio de Barroterán" }
+  { dia: "DOMINGO",  fecha: "16 AGO", hora: "10:00 AM", visitante: "Halcones",  estadio: "Estadio de Barroterán" },
+  { dia: "DOMINGO",  fecha: "23 AGO", hora: "10:00 AM", visitante: "Halcones",  estadio: "Estadio Monclova" },
+  { dia: "DOMINGO",  fecha: "30 AGO", hora: "10:00 AM", visitante: "Halcones",  estadio: "Estadio de Barroterán" },
+  { dia: "DOMINGO",  fecha: "05 SEP", hora: "7:30 PM", visitante: "Halcones", estadio: "Estadio Monclova" }
 ];
 
 /* --- Resultados: res = "V" victoria | "D" derrota | "E" empate --- */
 const RESULTADOS = [
-  { visitante: "Mineros (ejemplo)",   ml: 8, mv: 4, res: "V" },
-  { visitante: "Vaqueros (ejemplo)",  ml: 3, mv: 5, res: "D" },
-  { visitante: "Acereros (ejemplo)",  ml: 2, mv: 2, res: "E" },
+  { visitante: "Halcones",   ml: 6, mv: 7, res: "D" },
+  { visitante: "Halcones",  ml: 0, mv: 0, res: "E" },
+  /*{ visitante: "Acereros (ejemplo)",  ml: 2, mv: 2, res: "E" },
   { visitante: "Rurales (ejemplo)",   ml: 6, mv: 1, res: "V" },
   { visitante: "Cardenales (ejemplo)",ml: 0, mv: 2, res: "D" },
-  { visitante: "Sideristas (ejemplo)",ml: 9, mv: 7, res: "V" }
+  { visitante: "Sideristas (ejemplo)",ml: 9, mv: 7, res: "V" }*/
 ];
 
 /* ============================================================
@@ -286,12 +296,152 @@ function initEnlaces() {
 }
 
 /* ============================================================
+   12) BOLETOS EN LÍNEA — PLANET BOLETOS
+   Compra por transferencia + confirmación vía WhatsApp/correo.
+   Anti-duplicados: una sola notificación por contacto y partido.
+   ============================================================ */
+let JUEGOS_BOLETOS = [];
+
+/* Normaliza correo/teléfono para comparar sin diferencias de formato */
+const normalizarContacto = v => v.toLowerCase().replace(/[^a-z0-9@.+]/g, '');
+
+/* Registro local de compras recientes (ventana de 10 min) */
+function compraDuplicada(clave) {
+  const ahora = Date.now();
+  let reg = {};
+  try { reg = JSON.parse(localStorage.getItem('barreteros_compras') || '{}'); } catch (e) { reg = {}; }
+  if (reg[clave] && (ahora - reg[clave]) < 10 * 60 * 1000) return true;
+  reg[clave] = ahora;
+  try { localStorage.setItem('barreteros_compras', JSON.stringify(reg)); } catch (e) {}
+  return false;
+}
+
+/* Toast de notificación en pantalla */
+let toastTimer = null;
+function mostrarToast(msg, warn = false) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast'; t.setAttribute('role', 'status'); t.setAttribute('aria-live', 'polite');
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.toggle('warn', warn);
+  requestAnimationFrame(() => t.classList.add('show'));
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 6500);
+}
+
+/* Muestra el próximo partido; si hay 2 el mismo día, muestra ambos */
+function renderBoletos() {
+  const wrap = document.getElementById('tickets-games');
+  if (!wrap) return;
+
+  const primeraFecha = PARTIDOS.length ? PARTIDOS[0].fecha : null;
+  JUEGOS_BOLETOS = PARTIDOS.filter(p => p.fecha === primeraFecha).slice(0, 2);
+
+  if (!JUEGOS_BOLETOS.length) {
+    wrap.innerHTML = '<p class="tg-empty">Próximamente se anunciarán nuevos partidos.</p>';
+    return;
+  }
+
+  wrap.innerHTML = JUEGOS_BOLETOS.map((p, i) => `
+    <label class="ticket-game${i === 0 ? ' selected' : ''}">
+      <input type="radio" name="partido-boletos" value="${i}" ${i === 0 ? 'checked' : ''}>
+      <span class="tg-date">${p.dia} ${p.fecha} · ${p.hora}</span>
+      <span class="tg-teams">Barreteros <em>VS</em> ${p.visitante}</span>
+      <span class="tg-place">📍 ${p.estadio}</span>
+    </label>`).join('');
+
+  /* Número de transferencia: fuente única en CONFIG (nunca duplicado en el HTML) */
+  const num = document.getElementById('tf-num-transfer');
+  if (num) num.textContent = CONFIG.boletos.numeroTransferencia;
+
+  wrap.addEventListener('change', e => {
+    if (e.target.name !== 'partido-boletos') return;
+    [...wrap.querySelectorAll('.ticket-game')].forEach(card =>
+      card.classList.toggle('selected', card.querySelector('input').checked));
+  });
+}
+
+/* Cantidad, total y botones de confirmación */
+function initBoletos() {
+  const form = document.getElementById('ticket-form');
+  if (!form) return;
+
+  const qty     = document.getElementById('tf-cantidad');
+  const totalEl = document.getElementById('tf-total');
+
+  const actualizarTotal = () => {
+    let n = parseInt(qty.value, 10) || 1;
+    n = Math.min(Math.max(n, 1), CONFIG.boletos.maxPorCompra);
+    qty.value = n;
+    totalEl.textContent = `$${n * CONFIG.boletos.precio} MXN`;
+  };
+
+  document.getElementById('qty-minus').addEventListener('click', () => { qty.value = (parseInt(qty.value, 10) || 1) - 1; actualizarTotal(); });
+  document.getElementById('qty-plus') .addEventListener('click', () => { qty.value = (parseInt(qty.value, 10) || 1) + 1; actualizarTotal(); });
+  qty.addEventListener('input', actualizarTotal);
+  actualizarTotal();
+
+  form.querySelectorAll('.tf-actions .btn').forEach(btn =>
+    btn.addEventListener('click', e => { e.preventDefault(); confirmarCompra(btn.dataset.canal); }));
+}
+
+/* Construye el mensaje y envía la notificación (WhatsApp o correo) */
+function confirmarCompra(canal) {
+  const form = document.getElementById('ticket-form');
+  if (!form.reportValidity()) return;
+
+  const nombre   = document.getElementById('tf-nombre').value.trim();
+  const contacto = normalizarContacto(document.getElementById('tf-contacto').value);
+  const cantidad = parseInt(document.getElementById('tf-cantidad').value, 10);
+  const sel      = form.querySelector('input[name="partido-boletos"]:checked');
+  const juego    = JUEGOS_BOLETOS[sel ? parseInt(sel.value, 10) : 0] || JUEGOS_BOLETOS[0];
+  const total    = cantidad * CONFIG.boletos.precio;
+
+  /* Anti-duplicados: mismo contacto + mismo partido en 10 min = sin segunda notificación */
+  const clave = `${contacto}|${juego.fecha}|${juego.hora}`;
+  if (compraDuplicada(clave)) {
+    mostrarToast('⚠️ Detectamos una compra con el mismo contacto para este partido. Para evitar duplicados, no se enviará otra notificación.', true);
+    return;
+  }
+
+  const mensaje =
+`🎟️ COMPRA DE BOLETOS — BARRETEROS (Planet Boletos)
+⚾ Partido: Barreteros VS ${juego.visitante}
+📅 ${juego.dia} ${juego.fecha} · ${juego.hora}
+📍 ${juego.estadio}
+👤 Comprador: ${nombre}
+🎫 Boletos: ${cantidad} × $${CONFIG.boletos.precio} = $${total} MXN
+🏦 Transferencia a: ${CONFIG.boletos.numeroTransferencia} (Planet Boletos)
+📩 Notificación al comprador: ${contacto}`;
+
+  /* Bloqueo temporal de botones: evita doble clic / doble envío */
+  const botones = form.querySelectorAll('.tf-actions .btn');
+  botones.forEach(b => b.disabled = true);
+  setTimeout(() => botones.forEach(b => b.disabled = false), 8000);
+
+  if (canal === 'whatsapp') {
+    const num = CONFIG.socialLinks.whatsapp !== 'NUMERO_WHATSAPP' ? CONFIG.socialLinks.whatsapp : CONFIG.whatsappNumber;
+    window.open(`https://wa.me/${num}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener');
+    mostrarToast('✅ Compra registrada. Abrimos WhatsApp con tu comprobante; recibirás tu confirmación por el mismo medio.');
+  } else {
+    const asunto = `Compra de boletos — Barreteros VS ${juego.visitante} (${cantidad} boletos)`;
+    window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+    mostrarToast('✅ Compra registrada. Abrimos tu cliente de correo; recibirás la confirmación por el mismo medio.');
+  }
+}
+
+/* ============================================================
    11) ARRANQUE
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   renderJugadores();
   renderPartidos();
   renderResultados();
+  renderBoletos();   // ← nuevo
+  initBoletos();     // ← nuevo
   initHeader();
   initReveal();
   initCounters();
