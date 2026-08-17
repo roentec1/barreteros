@@ -46,9 +46,9 @@ const JUGADORES = [
 /* --- Próximos partidos --- */
 const PARTIDOS = [
   { dia: "DOMINGO",  fecha: "16 AGO", hora: "10:00 AM", visitante: "Halcones",  estadio: "Estadio de Barroterán" },
-  { dia: "DOMINGO",  fecha: "23 AGO", hora: "10:00 AM", visitante: "Halcones",  estadio: "Estadio Monclova" },
-  { dia: "DOMINGO",  fecha: "30 AGO", hora: "10:00 AM", visitante: "Halcones",  estadio: "Estadio de Barroterán" },
-  { dia: "DOMINGO",  fecha: "05 SEP", hora: "7:30 PM", visitante: "Halcones", estadio: "Estadio Monclova" }
+  { dia: "DOMINGO",  fecha: "16 AGO", hora: "13:00 PM", visitante: "Halcones",  estadio: "Estadio de Barroterán" },
+  { dia: "DOMINGO",  fecha: "23 AGO", hora: "10:00 AM", visitante: "barreteros",  estadio: "Estadio Monclova" },
+  { dia: "DOMINGO",  fecha: "23 AGO", hora: "13:00 PM", visitante: "barreteros", estadio: "Estadio Monclova" }
 ];
 
 /* --- Resultados: res = "V" victoria | "D" derrota | "E" empate --- */
