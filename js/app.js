@@ -54,7 +54,7 @@ const PARTIDOS = [
 /* --- Resultados: res = "V" victoria | "D" derrota | "E" empate --- */
 const RESULTADOS = [
   { visitante: "Halcones",   ml: 6, mv: 7, res: "D" },
-  { visitante: "Halcones",  ml: 0, mv: 0, res: "E" },
+  { visitante: "Halcones",  ml: 0, mv: 6, res: "D" },
   /*{ visitante: "Acereros (ejemplo)",  ml: 2, mv: 2, res: "E" },
   { visitante: "Rurales (ejemplo)",   ml: 6, mv: 1, res: "V" },
   { visitante: "Cardenales (ejemplo)",ml: 0, mv: 2, res: "D" },
