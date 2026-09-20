@@ -449,3 +449,35 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initEnlaces();
 });
+
+  // Reemplaza esta constante con tu URL ejecutable de Apps Script
+  const GOOGLE_SHEETS_WEBHOOK = "https://script.google.com/macros/s/TU_SCRIPT_ID/exec";
+
+  async function loadBarreterosStandings() {
+    try {
+      const response = await fetch(GOOGLE_SHEETS_WEBHOOK);
+      const data = await response.json();
+      
+      if (data && data.teams) {
+        const tbody = document.getElementById('standingsRenderBody');
+        // Ordenamos los equipos por juegos ganados
+        const sorted = data.teams.sort((a,b) => (b.jg || 0) - (a.jg || 0));
+        
+        tbody.innerHTML = sorted.map((t, index) => `
+          <tr style="border-bottom: 1px solid #1e293b; ${t.id === 'barreteros' ? 'background-color: rgba(212, 175, 55, 0.15); font-weight: bold;' : ''}">
+            <td style="padding: 10px; text-align: center; color: ${index === 0 ? '#d4af37' : '#ffffff'}; font-weight: bold;">${index + 1}</td>
+            <td style="padding: 10px; color: #ffffff;">${t.name}</td>
+            <td style="padding: 10px; text-align: center;">${t.jj || 0}</td>
+            <td style="padding: 10px; text-align: center; color: #4ade80; font-weight: bold;">${t.jg || 0}</td>
+            <td style="padding: 10px; text-align: center; color: #f87171;">${t.jp || 0}</td>
+            <td style="padding: 10px; text-align: center; color: #ffffff;">${t.pct || '.000'}</td>
+            <td style="padding: 10px; text-align: center; color: #94a3b8;">${t.jv || '-'}</td>
+          </tr>
+        `).join('');
+      }
+    } catch (err) {
+      console.error("Error al cargar la tabla de posiciones:", err);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadBarreterosStandings);
