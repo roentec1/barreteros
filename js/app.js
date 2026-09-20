@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
   // Reemplaza esta constante con tu URL ejecutable de Apps Script
-  const GOOGLE_SHEETS_WEBHOOK = "https://script.google.com/macros/s/TU_SCRIPT_ID/exec";
+  const GOOGLE_SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbykadjzSa9yYwnZMjx1vRKL_iXrimtua4br4LGhr4OR5-yLryJqct1WE_NQEUuQ2i-Hpg/exec";
 
   async function loadBarreterosStandings() {
     try {
